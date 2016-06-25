@@ -13,6 +13,7 @@
 		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
 		<mysql.driver.version>5.1.35</mysql.driver.version>
 		<spring.version>4.3.0.RELEASE</spring.version>
+		<jackson.version>2.7.5</jackson.version>
   </properties>
   <dependencies>
     <dependency>
@@ -80,6 +81,24 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        
+        <!-- Jackson -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+        
   </dependencies>
   <build>
     <finalName>rolebackend</finalName>
