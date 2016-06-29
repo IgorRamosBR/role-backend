@@ -2,7 +2,7 @@ package br.com.mytho.role.infra.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class SpringInitializator extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class SpringBootstrap extends AbstractAnnotationConfigDispatcherServletInitializer {
 	
     @Override
     protected Class<?>[] getRootConfigClasses() {
