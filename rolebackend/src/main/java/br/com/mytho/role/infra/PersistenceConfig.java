@@ -4,10 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class ConfiguracaoJPA {
-private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("sappg");
-	
-	
+public class PersistenceConfig {
+	private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("sappg");
 	public EntityManager getEntityManager(){
 		return factory.createEntityManager();
 	}
