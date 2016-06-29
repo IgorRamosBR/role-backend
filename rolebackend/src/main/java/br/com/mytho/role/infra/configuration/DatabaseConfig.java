@@ -1,10 +1,10 @@
-package br.com.mytho.role.infra;
+package br.com.mytho.role.infra.configuration;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class PersistenceConfig {
+public class DatabaseConfig {
 	private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("sappg");
 	public EntityManager getEntityManager(){
 		return factory.createEntityManager();

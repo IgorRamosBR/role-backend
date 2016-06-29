@@ -1,17 +1,17 @@
-package br.com.mytho.role.spring.configuration;
+package br.com.mytho.role.infra.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class SpringInitializator extends AbstractAnnotationConfigDispatcherServletInitializer {
- 
+	
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { SpringMVCConfig.class };
+    	return null;
     }
   
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return null;
+        return new Class[] { SpringMVCConfig.class };
     }
   
     @Override

@@ -1,4 +1,4 @@
-package br.com.mytho.role.spring.configuration;
+package br.com.mytho.role.infra.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,9 +9,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "br.com.mytho.role.spring")
+@ComponentScan(basePackages = "br.com.mytho.role")
 public class SpringMVCConfig {
-
+	
 	@Bean
 	public ViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

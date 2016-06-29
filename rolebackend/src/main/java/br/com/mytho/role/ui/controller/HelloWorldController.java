@@ -1,4 +1,4 @@
-package br.com.mytho.role.spring.controller;
+package br.com.mytho.role.ui.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
