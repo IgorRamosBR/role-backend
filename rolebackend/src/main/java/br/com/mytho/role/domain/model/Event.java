@@ -1,0 +1,15 @@
+package br.com.mytho.role.domain.model;
+
+public class Event {
+
+	private String name;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+}
