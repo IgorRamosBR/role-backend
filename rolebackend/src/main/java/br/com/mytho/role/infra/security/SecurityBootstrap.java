@@ -1,4 +1,4 @@
-package br.com.mytho.role.infra.security.configuration;
+package br.com.mytho.role.infra.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

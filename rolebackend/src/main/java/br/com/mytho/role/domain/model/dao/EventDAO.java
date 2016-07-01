@@ -1,4 +1,4 @@
-package br.com.mytho.role.domain.model;
+package br.com.mytho.role.domain.model.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

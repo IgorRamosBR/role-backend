@@ -1,4 +1,4 @@
-package br.com.mytho.role.infra.configuration;
+package br.com.mytho.role.infra.spring;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
