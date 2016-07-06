@@ -22,5 +22,9 @@ public class EventDAO {
 	public List<Event> list() {
 		return entityManager.createQuery("from Event", Event.class).getResultList();
 	}
+
+	public Event findBy(Long id) {
+		return entityManager.find(Event.class, id);		
+	}
 	
 }

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.mytho.role.domain.model.Event;
@@ -38,5 +39,12 @@ public class EventController {
 		    produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Event> events() { 
 		return events.list();
+	}
+	
+
+	@RequestMapping(value="evento",method=RequestMethod.GET, 
+		    produces=MediaType.APPLICATION_JSON_VALUE)
+	public Event findBy(@RequestParam Long id){
+		 return events.findBy(id);
 	}
 }
