@@ -53,5 +53,4 @@ public class PhotoService {
 	private String getHashFrom(String bytes) {
 		return bytes.substring(bytes.indexOf(",") + 1).replace(" ", "+");
 	}
-
 }

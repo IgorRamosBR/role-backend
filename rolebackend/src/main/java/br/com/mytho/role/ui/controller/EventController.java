@@ -1,5 +1,7 @@
 package br.com.mytho.role.ui.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +32,11 @@ public class EventController {
 	public Event create(@RequestBody @Valid Event event) {
 		events.create(event);
 		return event; 
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, 
+		    produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Event> events() { 
+		return events.list();
 	}
 }

@@ -1,5 +1,7 @@
 package br.com.mytho.role.domain.model.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -15,6 +17,10 @@ public class EventDAO {
 	
 	public void create(Event event) {
 		entityManager.persist(event);
+	}
+
+	public List<Event> list() {
+		return entityManager.createQuery("from Event", Event.class).getResultList();
 	}
 	
 }

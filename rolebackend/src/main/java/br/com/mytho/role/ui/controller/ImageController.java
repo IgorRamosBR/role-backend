@@ -22,6 +22,7 @@ public class ImageController {
 		this.context = context;
 	}
 
+	// content-type: application/x-www-form-urlencoded
 	@RequestMapping(method=RequestMethod.POST) 
 	public String upload(String image, HttpServletRequest request) {
 		String imageName = photo.save(image, context);

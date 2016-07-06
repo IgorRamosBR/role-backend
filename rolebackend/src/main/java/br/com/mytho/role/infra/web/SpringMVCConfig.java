@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "br.com.mytho.role")
+@ComponentScan(basePackages="br.com.mytho.role")
 public class SpringMVCConfig extends WebMvcConfigurerAdapter {
 	
 	@Override
