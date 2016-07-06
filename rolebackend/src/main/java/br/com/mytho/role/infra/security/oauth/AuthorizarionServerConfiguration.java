@@ -23,15 +23,17 @@ import br.com.mytho.role.domain.service.UserService;
 @EnableAuthorizationServer
 @EnableWebSecurity
 public class AuthorizarionServerConfiguration extends AuthorizationServerConfigurerAdapter {
-	
-	@Autowired
-	private UserService userService;
-	
 	private static final String PRIVATE_AREA_SCOPE = "private-area";
 	private static final String PUBLIC_AREA_SCOPE = "public-area";
 	
-	@Autowired
+	private UserService userService;
 	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	public AuthorizarionServerConfiguration(UserService userService, AuthenticationManager authenticationManager) {
+		this.userService = userService;
+		this.authenticationManager = authenticationManager;
+	}
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {

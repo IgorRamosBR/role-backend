@@ -1,4 +1,4 @@
-package br.com.mytho.role.infra.spring;
+package br.com.mytho.role.infra.web;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
