@@ -23,8 +23,8 @@ import br.com.mytho.role.domain.service.UserService;
 @EnableAuthorizationServer
 @EnableWebSecurity
 public class AuthorizarionServerConfiguration extends AuthorizationServerConfigurerAdapter {
-	private static final String PRIVATE_AREA_SCOPE = "private-area";
-	private static final String PUBLIC_AREA_SCOPE = "public-area";
+	public static final String PRIVATE_AREA_SCOPE = "private-area";
+	public static final String PUBLIC_AREA_SCOPE = "public-area";
 	
 	private UserService userService;
 	private AuthenticationManager authenticationManager;
