@@ -34,6 +34,12 @@ public class DatabaseConfig {
 			throw new RuntimeException(e);
 		}
 
+//		ds.setUser("adminJpPydaP");
+//		ds.setPassword("bDjJij95rZga");
+//
+//		ds.setJdbcUrl(String.format("jdbc:mysql://%s:%s/%s", System.getenv().get("OPENSHIFT_MYSQL_DB_HOST"), System.getenv().get("OPENSHIFT_MYSQL_DB_PORT"), "role"));
+
+		
 		ds.setUser("root");
 		ds.setPassword("");
 

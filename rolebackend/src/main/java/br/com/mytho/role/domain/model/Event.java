@@ -19,7 +19,8 @@ public class Event {
 	private String name;
 	private String imageLink;
 	private String about;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm", timezone="UTC")
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy HH:mm")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar date;
 	
