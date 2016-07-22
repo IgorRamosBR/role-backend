@@ -11,8 +11,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/user").access(String.format("#oauth2.hasScoped('%s')",
-										AuthorizarionServerConfiguration.PRIVATE_AREA_SCOPE))
+			.antMatchers("/user").access(String.format("#oauth2.hasScoped('%s')", AuthorizarionServerConfiguration.PRIVATE_AREA_SCOPE))
 			.anyRequest().authenticated();
 	} 
 }
