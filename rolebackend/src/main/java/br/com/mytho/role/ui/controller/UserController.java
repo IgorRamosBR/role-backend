@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class UserController {
 
 	@Transactional
 	@RequestMapping(method=RequestMethod.POST)
-	public User create(@RequestBody @Valid User user) {
+	public User create(@RequestBody @Valid User user, Authentication authentication) {
 		users.create(user);
 		return user;
 	}
