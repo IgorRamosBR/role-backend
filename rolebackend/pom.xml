@@ -19,6 +19,34 @@
 		<jackson.version>2.7.5</jackson.version>
 	</properties>
 	<dependencies>
+		
+		<!-- Rest Assured -->
+		<dependency>
+	      <groupId>io.rest-assured</groupId>
+	      <artifactId>rest-assured</artifactId>
+	      <version>3.0.0</version>
+	      <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+	      <groupId>io.rest-assured</groupId>
+	      <artifactId>json-path</artifactId>
+	      <version>3.0.0</version>
+		</dependency>
+		<dependency>
+		 	<groupId>io.rest-assured</groupId>
+		    <artifactId>spring-mock-mvc</artifactId>
+		    <version>3.0.0</version>
+	        <scope>test</scope>
+		</dependency>
+		<dependency>
+		      <groupId>io.rest-assured</groupId>
+		      <artifactId>json-schema-validator</artifactId>
+		      <version>3.0.0</version>
+		      <scope>test</scope>
+		</dependency>
+		
+		<!-- Junit  -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
