@@ -28,6 +28,11 @@ public class User implements UserDetails {
 	private String email;
 	@NotEmpty
 	private String password;
+	
+	public Long getId(){
+		
+		return id;
+	}
 
 	public String getName() {
 		return name;
