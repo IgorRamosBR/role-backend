@@ -1,7 +1,8 @@
-package br.com.mytho.role.oauth;
 
-import static io.restassured.RestAssured.given;
-
+  package br.com.mytho.role.oauth;
+  
+  import static io.restassured.RestAssured.given;
+  
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,16 +15,19 @@ import br.com.mytho.role.domain.model.User;
 import br.com.mytho.role.domain.model.dao.UserDAO;
 import br.com.mytho.role.infra.database.DatabaseConfig;
 import br.com.mytho.role.ui.controller.UserController;
-//import static io.restassured.matcher.RestAssuredMatchers.*;
-
+  //import static io.restassured.matcher.RestAssuredMatchers.*;
+  
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {UserDAO.class,DatabaseConfig.class,UserController.class})
-public class Oauth2Test {
-	
+  public class Oauth2Test {
+  	
 	private String URI = "http://localhost:8080/rolebackend/oauth/token";
 	private String clientId = "mobile-client";
 	private String clientSecret = "08282424-432a-11e6-beb8-9e71128cae77";
-	
+	private String nome = "userTeste";
+	private String email = "user-teste@gmail.com";
+	private String senha = "123";
+  	
 	private User user = new User();
 	@Autowired
 	private UserDAO userDao;
@@ -33,10 +37,10 @@ public class Oauth2Test {
 	
 	@Before
 	public void initialize(){
-		
-		user.setName("userTeste");
-		user.setEmail("user-teste@gmail.com");
-		user.setPassword("123");
+  		
+		user.setName(nome);
+		user.setEmail(email);
+		user.setPassword(senha);
 		
 		
 		userController.create(user);
@@ -46,103 +50,103 @@ public class Oauth2Test {
 	@After//Problema em aberto: @BeforeClass e @AfterClass só permite métodos estáticos
 	public void finish(){
 		userController.delete(user);
-	}
-	
-	@Test
+  	}
+  	
+  	@Test
 	public void public_scoped_works_with_basic_authentication(){
-		given().
-		param("scope", "public-area").
-		param("grant_type", "client_credentials").
-		auth().
-		preemptive().
+  		given().
+  		param("scope", "public-area").
+  		param("grant_type", "client_credentials").
+  		auth().
+  		preemptive().
 		basic(clientId, clientSecret).
 		when().
 			post(URI).
 		then().statusCode(200);
-	}
-	
+  	}
+  	
 		
-	@Test
+  	@Test
 	public void grant_type_password_works_only_with_username_and_password(){
 		
-		given().
-		param("grant_type", "password").
-		param("username", user.getEmail()).
-		param("password", user.getPassword()).
-		auth().
-		preemptive().
+  		given().
+  		param("grant_type", "password").
+		param("username",email).
+		param("password", senha).
+  		auth().
+  		preemptive().
 		basic(clientId, clientSecret).
-		
-	when().
+  		
+  	when().
 		post(URI).
-	then().statusCode(200);
-	}
-	
-	
-	@Test
+  	then().statusCode(200);
+  		//System.out.println("---EMAIL-----" + user.getEmail());
+  	}
+  	
+  	@Test
 	public void bad_username_unauthorized(){
-		given().
-		param("scope", "public-area").
-		param("grant_type", "password").
-		param("username", "badUsername").
+  		given().
+  		param("scope", "public-area").
+  		param("grant_type", "password").
+  		param("username", "badUsername").
 		param("password", user.getPassword()).
-		auth().
-		preemptive().
+  		auth().
+  		preemptive().
 		basic(clientId, clientSecret).
-		
-	when().
+  		
+  	when().
 		post(URI).
-	then().statusCode(401);
-		
-	}
-	
-	
-	@Test
+  	then().statusCode(401);
+  		
+  	}
+  	
+  	@Test
 	public void bad_password_unathorized(){
-		given().
-		param("scope", "public-area").
-		param("grant_type", "password").
+  		given().
+  		param("scope", "public-area").
+  		param("grant_type", "password").
 		param("username", user.getEmail()).
-		param("password", "badPassword").
-		auth().
-		preemptive().
+  		param("password", "badPassword").
+  		auth().
+  		preemptive().
 		basic(clientId, clientSecret).
-		
-	when().
+  		
+  	when().
 		post(URI).
 	then().statusCode(400);
-		
-	}
-	
-	@Test
+  		
+  	}
+  	
+  	@Test
 	public void authentication_work_without_scope(){
-		given().
-		param("grant_type", "client_credentials").
-		auth().
-		preemptive().
+  		given().
+  		param("grant_type", "client_credentials").
+  		auth().
+  		preemptive().
 		basic(clientId, clientSecret).
-		
-	when().
+  		
+  	when().
 		post(URI).
 	then().statusCode(200);
-		
-	}
-	
-	@Test
+  		
+  	}
+  	
+  	@Test
 	public void authentication_with_private_scope_need_username_and_password(){
-		given().
-		param("scope", "private-area").
-		param("grant_type", "password").
-		param("username", "user-teste@gmail.com").
-		param("password", "123").
-		auth().
-		preemptive().
+  		given().
+  		param("scope", "private-area").
+  		param("grant_type", "password").
+		param("username", email).
+  		param("password", senha).
+  		auth().
+  		preemptive().
 		basic(clientId, clientSecret).
-		
-	when().
+  		
+  	when().
 		post(URI).
-	then().statusCode(200);
-	
-	}
+  	then().statusCode(200);
+  	
+  	}
+  
+  }
 
-}
