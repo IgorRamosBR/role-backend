@@ -32,4 +32,11 @@ public class UserController {
 		return user;
 	}
 	
+	@Transactional
+	//@RequestMapping(method=RequestMethod.POST)
+	public void delete(@RequestBody @Valid User user){
+		users.delete(user);
+		
+	}
+	
 }
